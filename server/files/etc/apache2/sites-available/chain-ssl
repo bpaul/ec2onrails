@@ -3,4 +3,5 @@ NameVirtualHost *:443
 
   Include /etc/apache2/sites-available/ssl.common
 
+  SSLCertificateChainFile    /etc/ec2onrails/ssl/cert/ec2onrails-chain.crt
 </VirtualHost>
