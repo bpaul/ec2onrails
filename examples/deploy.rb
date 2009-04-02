@@ -57,6 +57,8 @@ set :ec2onrails_config, {
   # Any extra RubyGems to install if desired: can be "gemname" or if a 
   # particular version is desired "gemname -v 1.0.1"
   # If you don't want to install extra rubygems then remove this
+  # NOTE: if you are using rails 2.1, ec2onrails calls 'sudo rake gem:install',
+  # which will install gems defined in your rails configuration
   :rubygems => ["rmagick", "rfacebook -v 0.9.7"],
   
   # Defines the web proxy that will be used.  Choices are :apache or :nginx
@@ -67,6 +69,12 @@ set :ec2onrails_config, {
   # have your ssh keys setup correctly, you will be locked out of your
   # server after 3 attempts for upto 3 months.  
   :harden_server => false,
+  
+  #if you want to harden the server, or setup email signing, you will need to set the domain
+  #if you use Capistrano's multistage extension (recommended!), you can add a line like this to your
+  #environment specific file:
+  #      ec2onrails_config[:service_domain] = 'staging.mydomain.com'
+  :service_domain => nil,
   
   # Set the server timezone. run "cap -e ec2onrails:server:set_timezone" for 
   # details
@@ -79,7 +87,7 @@ set :ec2onrails_config, {
   # server's filesystem. 
   # If you don't need to deploy customized config files to the server then
   # remove this.
-  :server_config_files_root => "../server_config",
+  :server_config_files_root => "../server_configs",
   
   # If config files are deployed, some services might need to be restarted.
   # If you don't need to deploy customized config files to the server then
