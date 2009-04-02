@@ -101,12 +101,12 @@ set :ec2onrails_config, {
   
   # Set this if you want SSL to be enabled on the web server. The SSL cert 
   # and key files need to exist on the server, The cert file should be in
-  # /etc/ssl/certs/ec2onrails-default.crt and the key file should be in
-  # /etc/ssl/private/ec2onrails-default.key (see :server_config_files_root).
-  :enable_ssl => true
+  # /etc/ec2onrails/ssl/certs/ec2onrails-default.crt and the key file should be in
+  # /etc/ec2onrails/ssl/private/ec2onrails-default.key (see :server_config_files_root).
+  :enable_ssl => true,
   
   # If you use a chain or intermediate certificate for your ssl cert
   # (for example certs issued by GoDaddy) enable SSL above and set this option to true
-  # put the chain cert in /etc/ssl/certs/ec2onrails-chain.crt
+  # put the chain cert in /etc/ec2onrails/ssl/certs/ec2onrails-chain.crt
   :use_ssl_chain_cert => false
 }

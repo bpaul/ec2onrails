@@ -401,10 +401,10 @@ Capistrano::Configuration.instance(:must_exist).load do
 
       desc <<-DESC
         Enable ssl for the web server. The SSL cert file should be in
-        /etc/ssl/certs/ec2onrails-default.pem and the SSL key file should be in
-        /etc/ssl/private/ec2onrails-default.key (use the deploy_files task).
+        /etc/ec2onrails/ssl/certs/ec2onrails-default.pem and the SSL key file should be in
+        /etc/ec2onrails/ssl/private/ec2onrails-default.key (use the deploy_files task).
         If you use a chain or bundle certificate set :use_ssl_chain_cert to true in your deploy.rb
-        and put your chain cert in /etc/ssl/certs/ec2onrails-chain.pem 
+        and put your chain cert in /etc/ec2onrails/ssl/certs/ec2onrails-chain.pem 
       DESC
       task :enable_ssl, :roles => :web do
         #TODO: enable for nginx
